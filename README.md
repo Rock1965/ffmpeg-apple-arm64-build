@@ -1,3 +1,21 @@
+## 修改
+1. build.sh
+   ``` 
+   ENABLE_FFPLAY=TRUE
+   ```
+3. build/build-ffmpeg.sh
+   ```
+   --enable-librtmp \
+   ```
+4. 原使用之freetype的gitlab無法存取，修改 build/build-freetype.sh
+   ```
+   git clone https://github.com/freetype/freetype.git
+   ```
+5. 下載並編譯與安裝librtmp
+   ```
+   git clone https://github.com/Rock1965/librtmp.git 
+   ```
+
 # FFmpeg
 This script is made to compile FFmpeg with common codecs on Mac OSX running on Apple Silicon.
 The script was orginally taken from https://gitlab.com/martinr92/ffmpeg and has been modifed to build
