@@ -1,17 +1,30 @@
-## 修改
+
+## 修改安裝路徑(/usr/local)，使用librtmp(without crypto)
 1. build.sh
-   ``` 
+   ```
+   //build ffplay
    ENABLE_FFPLAY=TRUE
+
+   //install to /usr/local
+   OUT_DIR="/usr/local"
+
+   //Remove make output directory
+   #mkdir "$OUT_DIR"
+   #checkStatusAndAction $? "unable to create output directory"
    ```
-3. build/build-ffmpeg.sh
+2. build/build-ffmpeg.sh
    ```
+   //configure add librtmp
    --enable-librtmp \
+
+   //sudo for install to /usr/local
+   sudo make install
    ```
-4. 原使用之freetype的gitlab無法存取，修改 build/build-freetype.sh
+3. 原使用之freetype的gitlab無法存取，修改 build/build-freetype.sh
    ```
    git clone https://github.com/freetype/freetype.git
    ```
-5. 下載並編譯與安裝librtmp
+4. 下載並編譯與安裝librtmp
    ```
    git clone https://github.com/Rock1965/librtmp.git 
    ```
